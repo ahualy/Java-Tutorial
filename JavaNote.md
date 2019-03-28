@@ -250,9 +250,9 @@
       2.将对象包装成JSON字符串（字符流）
       3.protoBuf工具(二进制)
       实现方式
-      实现了如下两个接口之一的类的对象才能被序列化：
-　　  1).Serializable 
-　　  2).Externalizable
+      实现了如下两个接口之一的类的对象才能被序列化:
+      1).Serializable 
+      2).Externalizable
 　　  序列化：ObjectOutputStream代表对象输出流，它的writeObject(Object obj)方法可对参数指定的obj对象进行序列化，把得到的字节序列写到一个目标输出
       流中。
 　　  反序化：ObjectInputStream代表对象输入流，它的readObject()方法从一个源输入流中读取字节序列，再把它们反序列化为一个对象，并将其返回。
@@ -262,8 +262,9 @@
       成一个serialVersionUID然后去和已经序列化的对象进行比较，就会报序列号版本不一致的错误。为了避免这种问题， 一般系统都会要求实现serialiable接口
       的类显式的生明一个serialVersionUID。
       所以显式定义serialVersionUID有如下两种用途：
-　　　 1、 希望类的不同版本对序列化兼容时，需要确保类的不同版本具有相同的serialVersionUID；
-　　　 2、 不希望类的不同版本对序列化兼容时，需要确保类的不同版本具有不同的serialVersionUID。
+　　　 1.希望类的不同版本对序列化兼容时，需要确保类的不同版本具有相同的serialVersionUID；
+　　　 2.不希望类的不同版本对序列化兼容时，需要确保类的不同版本具有不同的serialVersionUID。
+　　  
     
 ## 十二.下面是一些面试问题
 ### 1.Java 中 sleep 方法和 wait 方法的区别？ 
