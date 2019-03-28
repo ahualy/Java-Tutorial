@@ -116,3 +116,4 @@
               sudo命令用来以root用户的身份来执行某个命令
               sudo chown root:root dir1 
 
+[内容持续更新中，敬请期待...](https://github.com/zixi5534/LinuxAndJavaNote/blob/master/LinuxNote.md)
