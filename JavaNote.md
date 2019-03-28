@@ -250,7 +250,7 @@
       2.将对象包装成JSON字符串（字符流）
       3.protoBuf工具(二进制)
       实现方式
-      实现了如下两个接口之一的类的对象才能被序列化： 
+      实现了如下两个接口之一的类的对象才能被序列化：
 　　  1).Serializable 
 　　  2).Externalizable
 　　  序列化：ObjectOutputStream代表对象输出流，它的writeObject(Object obj)方法可对参数指定的obj对象进行序列化，把得到的字节序列写到一个目标输出
