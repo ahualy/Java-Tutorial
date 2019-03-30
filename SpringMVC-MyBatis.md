@@ -8,7 +8,7 @@
    * 下载Tomcat，建议Tomcat8.5系列版本。[官网](http://tomcat.apache.org/)
    * 安装Eclipse，配置好java环境，确定能正常打开。[官网](https://www.eclipse.org/downloads/packages/)
    * 项目所需jar，仓库中已经上传(lib文件就是)。
-   * 关于如何在Eclipse中配置JavaWeb环境，这里有总结，请[点击](https://github.com/zixi5534/LinuxAndJavaNote/edit/master/Eclipse配置.md)查看   
+   * 关于如何在Eclipse中配置JavaWeb环境，这里有总结，请[点击](https://github.com/zixi5534/LinuxAndJavaNote/blob/master/Eclipse配置.md)查看   
    ### 第一回 懵懵懂懂项目初建  仔仔细细结构分析
        注意：有两种创建web项目的方式，一种是创建Dynamic Web Project（其中的第三方jar包是在lib文件夹下面，需要由程序员自行
        去官网 查找下载）。 一种是MavenProject，这种方法有一个方便的地方就是，通过pom.xml文件做了jar文件的版本管理，开发的
@@ -257,8 +257,8 @@
          log4j.appender.File.layout = org.apache.log4j.PatternLayout  
          log4j.appender.File.layout.ConversionPattern =[%p] [%d{yyyy-MM-dd HH\:mm\:ss}][%c]%m%n  
    ### 第三回  控制生成还需注解  前端拦截切勿心急
-       做好前面所有的配置以后，关于配置文件先告一段落，不再重提。话说这是基于java开发网站，到现在为止，java代码迟迟不现身，
-       这回，将开始做java代码的编写工作，为了让读者，能首先看到自己的网站能运行，先不做特别复杂的业务代码编写，这里先写出
+       做好前面所有的配置以后，关于配置文件先告一段落，不再重提。话说这是基于java开发网站，到现在为止，java代码却迟迟不现身，
+       那么这回，就将开始做java代码的编写工作，为了让读者能很直观看到自己的网站能运行，先不做特别复杂的业务代码编写，这里先写出
        一个控制器，调试通自己的网站即可（也可以测试自己前面的配置文件是否正确配置）
    ##### WEB-INF文件夹下面新建index.jsp文件，huaxiren.neepu.controller包下面新建UserController类
    ###### 下面给出的是UserController类完整代码
