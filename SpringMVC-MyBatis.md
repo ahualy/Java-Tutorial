@@ -7,26 +7,33 @@
    * 下载jdk，建议jdk1.8系列版本(虽然已经发布12了)。[官网](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
    * 下载Tomcat，建议Tomcat8.5系列版本。[官网](http://tomcat.apache.org/)
    * 安装Eclipse，配置好java环境，确定能正常打开。[官网](https://www.eclipse.org/downloads/packages/)
-   * 项目所需jar，仓库中已经上传(lib文件就是)。[下载]()
-   * 关于如何在Eclipse中配置JavaWeb环境，请[点击]()   
+   * 项目所需jar，仓库中已经上传(lib文件就是)。
+   * 关于如何在Eclipse中配置JavaWeb环境，请[点击](https://github.com/zixi5534/LinuxAndJavaNote/edit/master/Eclipse配置.md)   
    ### 第一回 懵懵懂懂项目初建  仔仔细细结构分析
-    注意：有两种创建web项目的方式，一种是创建Dynamic Web Project（其中的第三方jar包是在lib文件夹下面，需要由程序员自行
-    去官网 查找下载）。 一种是MavenProject，这种方法有一个方便的地方就是，通过pom.xml文件做了jar文件的版本管理，开发的
-    时候，在pom文件中直接进行配置，保存后，Eclipse将会根据你的配置，自动去下载所需要的jar包，不需要程序员进行干涉。
+       注意：有两种创建web项目的方式，一种是创建Dynamic Web Project（其中的第三方jar包是在lib文件夹下面，需要由程序员自行
+       去官网 查找下载）。 一种是MavenProject，这种方法有一个方便的地方就是，通过pom.xml文件做了jar文件的版本管理，开发的
+       时候，在pom文件中直接进行配置，保存后，Eclipse将会根据你的配置，自动去下载所需要的jar包，不需要程序员进行干涉。
    这里我们鉴于已经有下载好的jar包，便用Dynamic Web Project这种方式做以下总结。
    #### 1.打开Eclipse，File-->New-->Dynamic Web Project(如下图) 
+   ![图片添加方式](https://github.com/zixi5534/LinuxAndJavaNote/blob/master/images/第一步，新建动态web项目.png) 
    #### 2.添加项目名-->选择Tomcat版本-->选择工作集(可选)-->Next
+   ![图片添加方式](https://github.com/zixi5534/LinuxAndJavaNote/blob/master/images/第一步，新建动态web项目01.png) 
    #### 3.选择生成web.xml文件-->Finish  
+   ![图片添加方式](https://github.com/zixi5534/LinuxAndJavaNote/blob/master/images/第一步，新建动态web项目02.png)
    <font color="red">至此项目已经创建完成</font> 
    #### 4.打开项目结构(如下图) 
+   ![图片添加方式](https://github.com/zixi5534/LinuxAndJavaNote/blob/master/images/第一步，新建动态web项目03.png)
    #### 5.需要程序员编写的是src下面的java文件和一些配置资源文件以及WebContent下面和WEB-INF下面的lib（jar包）web.xml(配置文件)。 
    #### 6.需要将下载好的jar文件直接复制到lib文件夹下面，选中全部的jar文件，右键Bulid Path-->Add to Bulid Path  
    #### 7.选中项目名，右键New-->Source Folder (如果找不到，就New-->Other-->搜索框搜索一下) -->命名为config 
    #### 8.选中WebContent，New-->Folder-->命名为css,New-->Folder-->命名为image ,New-->Folder-->命名为js(新建这三个文件夹目的是为了存放前端的css样式，图片和JavaScript文件)
    #### 9.选中WEB-INF，New-->Folder-->命名为pages(前端页面文件夹)  
-   到此，项目结构成型（成型如下图）  
+   到此，项目结构成型（成型如下图）
+   ![图片添加方式](https://github.com/zixi5534/LinuxAndJavaNote/blob/master/images/第一步，新建动态web项目04.png)
    ### 第二回 文件配置我有妙招  峰回路转更进一步 
-   这一回是至关重要的一回，关系到你项目中各个中间件能否按照你的预期和谐的配合工作。这回里面将总结web.xml，spring.xml，mybatis.xml，spring-mybatis.xml，db.proerties，log4j.properties这些配置文件。除了web.xml文件在WEB-INF下面之外，其余文件都在资源文件config中。
+       这一回是至关重要的一回，关系到你项目中各个中间件能否按照你的预期和谐的配合工作。这回里面将总结web.xml，
+       spring.xml，mybatis.xml，spring-mybatis.xml，db.proerties，log4j.properties这些配置文件。除了web.xml
+       文件在WEB-INF下面之外，其余文件都在资源文件config中。
    * web.xml
    ##### web.xml文件是用来配置：过滤器，Springmvc前端控制器，编码方式，mybatis配置文件，spring配置文件等等。
      <web-app>
