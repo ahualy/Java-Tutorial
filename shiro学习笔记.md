@@ -4,7 +4,7 @@
 
 ######  jar包准备
 
-
+  [Spring-Shiro Jar包](https://github.com/zixi5534/LinuxAndJavaNote/tree/master/shiro%E7%9A%84jar)
 
 ######  web.xml配置
 
