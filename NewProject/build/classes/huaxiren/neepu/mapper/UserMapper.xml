@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="huaxiren.neepu.mapper.UserMapper">
+  
+  <!-- 插入方法具体实现到sql语句，这里注意，id必须和UserMapper.java中的方法名一直，必须一致 -->
+  <insert id="insert" parameterType="huxiren.neepu.po.User">
+    insert into user_inf (id, username, password)
+    values (#{id,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR})
+  </insert>
+  
+   <!--登录方法具体实现到sql语句，这里注意，id必须和UserMapper.java中的方法名一直，必须一致 -->
+  <select id="selectUserByName" parameterType="java.lang.String" resultType="huxiren.neepu.po.User">
+     select * from user_inf where username = #{username,jdbcType=VARCHAR} and password = #{password,jdbcType=VARCHAR}
+  </select>
+  
+  
+</mapper>
