@@ -275,8 +275,57 @@
 	    }
    ##### 运行项目，鼠标点击选中项目，右击Run As-->Run As Server-->添加你的项目-->Finish
    ##### 查看控制台，log4j正常打印日志，服务器完全起来之后，将会在Eclipse中呼出一个浏览器，你只需要在地址栏后面添加index，回车即可。
+   以上笔记主要介绍了，java web开发过程中环境的搭建、配置文件的编写等一些列准备工作，真正的java代码开发编写，数据库CRUD操作至此尚未涉及，
+   接下来的笔记将开始web开发之旅。主要实现的功能有系统登录注册、数据库CRUD、Shiro密码盐值加密、上传下载、ajax校验码生成，GoEasy消息实时
+   发送，等功能。
+   ### 第四回  网站访问提前注册  登录校验数据查询
+       网站开发过程中，必然要提供用户注册登录功能，不然怎么能知道是哪些用户访问了网站，怎么样给用户提供权限，管理员和普
+       通用户所访问的资源是不一样的，这就必然涉及到用户信息的统一化管理。这回笔者将提到登录之前到实现登录所做的一些列工作。
+   ##### 建立数据库，创建用户登录信息数据表 user_inf
+   创建项目所需数据库，以mysql数据库为例，通过Navicat数据库管理工具，很方便创建一张数据表 user_inf
+   如果有需要的，这里有安装数据库和创建教程[https://blog.csdn.net/weixin_44644403/article/details/88306003](https://blog.csdn.net/weixin_44644403/article/details/88306003)  
    
+  user_inf创建的sql代码  数据库引擎采用mysql默认的InnoDB引擎，编码格式UTF-8，id设置为自增AUTO_INCREMENT（读者根据自己的实际需求创建字段）
+  
+        CREATE TABLE `user_inf` (
+  	 `id` int(11) NOT NULL AUTO_INCREMENT,
+  	 `username` varchar(255) DEFAULT NULL,
+ 	 `password` varchar(255) DEFAULT NULL,
+	  PRIMARY KEY (`id`)
+	 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  数据库创建好了之后，数据库就先告一段落，但这个时候，你得明确，数据库目前情况下没有一条用户信息，即use_inf目前是一张空表
+   ##### 通过逆向工程，生成mapper.xml以及数据库java实体pojo
+   这一步的操作其实很方便
+   * 第一步：在mybatis官网上提供下载提供好的逆向工程（包括所依赖jar）逆向工程已经上传至本仓库
+   * 第二部：将此逆向工程部署在java project项目中，修改配置文件中的数据库属性
+   * 第三部：运行java application 应用程序即可生成所需文件。
+  
+  
+
     
    [持续更新完善中，敬请期待...](https://github.com/zixi5534/LinuxAndJavaNote/blob/master/SpringMVCAndMyBatis.md)  
    这篇文章出自本人自己总结编写，未经授权，禁止引用！
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
    
