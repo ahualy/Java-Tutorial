@@ -296,6 +296,29 @@ springmvc.xml，mybatis.xml，applicationContext.xml，db.proerties，log4j.prop
    ### 第四回  网站访问提前注册  登录校验数据查询
 网站开发过程中，必然要提供用户注册登录功能，不然怎么能知道是哪些用户访问了网站，怎么样给用户提供权限，管理员和普通用户所访问的资源是不一样的，这就必然涉及到用户信息的统一化管理。这回笔者将提到登录之前到实现登录所做的一些列工作。
 
+小插曲**  关于Spring IOC的理解（控制反转或依赖注入）通过@Service和@Resource两个注解说明
+
+- @Service     对应的是业务层Bean，例如：
+
+  ```java
+  @Service("userService")
+   public class UserServiceImpl implements UserService {
+   ………
+   }
+  ```
+
+  @Service("userService")注解是告诉Spring，当Spring要创建UserServiceImpl的的实例时，bean的名字必须叫做"userService"，这样当Controller需要使用UserServiceImpl的的实例时,就可以由Spring创建好的"userService"，然后注入给Controller：在Controller只需要声明一个名字叫“userService”的变量来接收由Spring注入的"userService"即可，具体代码如下：
+
+- @Resource
+
+  ```java
+  // 注入userService
+  @Resource(name = "userService")
+  private UserService userService;
+  ```
+
+  注意：在Controller声明的“userService”变量的类型必须是“UserServiceImpl”或者是其父类“UserService”，否则由于类型不一致而无法注入，由于Controller中的声明的“userService”变量使用了@Resource注解去标注，并且指明了其name = "userService"，这就等于告诉Spring，说我Controller要实例化一个“userService”，你Spring快点帮我实例化好，然后给我，当Spring看到userService变量上的@Resource的注解时，根据其指明的name属性可以知道，Controller中需要用到一个UserServiceImpl的实例，此时Spring就会把自己创建好的名字叫做"userService"的UserServiceImpl的实例注入给Controller中的“userService”变量，帮助Controller完成userService的实例化，这样在Controller中就不用通过“UserService userService = new UserServiceImpl();”这种最原始的方式去实例化userService了。如果没有Spring，那么当Controller需要使用UserServiceImpl时，必须通过“UserService userService = new UserServiceImpl();”主动去创建实例对象，但使用了Spring之后，Controller要使用UserServiceImpl时，就不用主动去创建UserServiceImpl的实例了，创建UserServiceImpl实例已经交给Spring来做了，Spring把创建好的UserServiceImpl实例给Controller，Controller拿到就可以直接用了。Controller由原来的主动创建UserServiceImpl实例后就可以马上使用，变成了被动等待由Spring创建好UserServiceImpl实例之后再注入给Controller，Controller才能够使用。这说明Controller对“UserServiceImpl”类的“控制权”已经被“反转”了，原来主动权在自己手上，自己要使用“UserServiceImpl”类的实例，自己主动去new一个出来马上就可以使用了，但现在自己不能主动去new“UserServiceImpl”类的实例，new“UserServiceImpl”类的实例的权力已经被Spring拿走了，只有Spring才能够new“UserServiceImpl”类的实例，而Controller只能等Spring创建好“UserServiceImpl”类的实例后，再“恳求”Spring把创建好的“UserServiceImpl”类的实例给他，这样他才能够使用“UserServiceImpl”，这就是Spring核心思想“**控制反转**”，也叫“**依赖注入**”，“**依赖注入**”也很好理解，Controller需要使用UserServiceImpl干活，那么就是对UserServiceImpl产生了依赖，Spring把Controller需要依赖的UserServiceImpl注入(也就是“给”)给Controller，这就是所谓的“依赖注入”。对Controller而言，Controller依赖什么东西，就请求Spring注入给他，对Spring而言，Controller需要什么，Spring就主动注入给他。
+
 #### 建立数据库，创建用户登录信息数据表 user_inf
 
 创建项目所需数据库，以mysql数据库为例，通过Navicat数据库管理工具，很方便创建一张数据表 user_inf
