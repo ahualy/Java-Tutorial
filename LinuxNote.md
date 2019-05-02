@@ -170,42 +170,42 @@ tail -n  指定用户要输出的行数
 
 ##### 20.文件的常用操作
 
-​        1.复制文件  cp [option]...  source(源文件或者目录) dest（目标文件或者目录）   
-​        2.移动文件  mv [option]...  source(源文件或者目录) dest（目标文件或者目录）假如目标地址已经有同名的文件，就	可以添加参数 -b 这个时候，
+​        1.复制文件  cp \[option]...  source(源文件或者目录) dest（目标文件或者目录）   
+​        2.移动文件  mv \[option]...  source(源文件或者目录) dest（目标文件或者目录）假如目标地址已经有同名的文件，就	可以添加参数 -b 这个时候，
 ​        会给原来文件创建一个备份，文件名是在原来文件后面家～符号    
-​        3.删除文件  rm [option]  file       
+​        3.删除文件  rm \[option]  file       
 ​          rm -f :强制删除文件，不给出任何提示   
 ​          rm -i :实现交互式文件删除，在删除文件时给出提示   
 ​          rm -r :递归删除目录及其包含的文件和子目录   
 ​          危险命令rm -rf 将会删除整个根文件系统中所有的文件   
-​        4.比较文件 diff [option]... file    
+​        4.比较文件 diff \[option]... file    
 ​        5.重命名文件 mv hello.txt hello1.txt  移动文件的特例，就是不改变路径，只改变名称即可   
 
 ##### 21.搜索文件   
 
-​        1.快速搜索文件：locate [option]... pattern(匹配模式)...   locat Linux学习  
+​        1.快速搜索文件：locate \[option]... pattern(匹配模式)...   locat Linux学习  
 ​        2.locate -b '\passwd'  精确匹配文件名，意味着，文件名只能是passwd，不包含其他字符  
 ​        3.如果需要搜索以某个字符开头的文件，可以使用 locate  /etc/pm,表示etc目录下，以pm开头的文件列表   
-​        4.还可以使用*或者？来匹配多个或一个字符    
+​        4.还可以使用* 或者？来匹配多个或一个字符    
 ​        5.使用locate命令的时候查不到最新更新过得文件，因此使用之前先使用sudo updatedb命名更新数据库    
 ​        6.locate命令使用绝对路径来匹配用户指定的搜索模式      
-​        7.按类型搜索：whereis [option] [-BMS directory... -f] name...   
+​        7.按类型搜索：whereis \[option] \[-BMS directory... -f] name...   
 ​        8.搜索二进制文件：which filename   which命令只在文件名中搜索，也不支持通配符   
 ​        9.全功能搜索 find 命令    
-​          find [starting-point...](搜索的起始点，为空时，默认为当前工作目录) [expression]   
+​          find \[starting-point...](搜索的起始点，为空时，默认为当前工作目录) \[expression]   
 ​        10.文本内容筛选   grep  fgrep  egrep等等    
-​          grep [option] pattren [file...]   此命令一般不是单独使用，一般都是配合ps  ls等命令一起使用   
+​          grep \[option] pattren \[file...]   此命令一般不是单独使用，一般都是配合ps  ls等命令一起使用   
 ​          筛选其他内容的输出结果  
 ​          ps -ef | grep -i mysql  
 ​          在grep中使用正则表达式   
-​        11.文本排序   sort [option]...[file]...   
+​        11.文本排序   sort \[option]...\[file]...   
 ​           合并有序文件 sort -m file1 file2   合并之后新的内容依然有序   
 
 ##### 22.文件的压缩和解压
 
 ​        1.压缩文件  zip  gzip  compress  bzip2    
-​         zip [option] zipfile file...    
-​         gzip [option] [name...]  name参数为要压缩的文件的列表，支持通配符    
+​         zip \[option] zipfile file...    
+​         gzip \[option] \[name...]  name参数为要压缩的文件的列表，支持通配符    
 ​         默认情况下gzip命令会逐个讲文件压缩，这个命令执行完后，会将源文件进行删除  扩展名为.gz   
 ​         单独的gzip命令不可能将多个文件压缩成为一个文件，但是用户可以结合tar命令来实现这个操作    
 ​         首先通过tar命令将所需要压缩的文件打包，然后再讲打包后的.tar文件压缩，就会形成.tar.gz压缩文件   
@@ -219,9 +219,9 @@ tail -n  指定用户要输出的行数
 ​        1.显示当前工作目录   
 ​          pwd    
 ​        2.改变目录    
-​          cd [option] path    
+​          cd \[option] path    
 ​        3.创建目录   
-​          mkdir [option]...directory...    
+​          mkdir \[option]...directory...    
 ​          常用的选项只有一个-p，该选项表示在创建目录时，如果父目录不存在，则先创建父目录。    
 ​        4.移动目录    
 ​          mv    
@@ -240,7 +240,7 @@ tail -n  指定用户要输出的行数
 ​        用户组是一组权限和功能相类似的用户的集合。用户组的信息保存在  cat /etc/group文件中    
 ​      2./etc/passwd文件   该文件存储了当前系统的用户账户信息。    
 ​        此文件中每一行都由7个字段构成，字段之间用冒号隔开。    
-​        www-data :x:33:33:www-data :/var/www:/usr/sbin/nologin   
+​        www-data\:x:33:33:www-data :/var/www:/usr/sbin/nologin   
 ​        以上七个字段的名称分别如下：   
 ​        登录名：口令：用户标识号：组标识号：注释：用户主目录：Shell程序   
 ​      3./etc/shadow文件    
@@ -249,28 +249,28 @@ tail -n  指定用户要输出的行数
 ​        该文件保存了当前系统中的用户组信息    
 ​        组名：口令：组标识号：成员列表    
 ​      5.添加用户：useradd命令    
-​        useradd [option] login     
+​        useradd \[option] login     
 ​      6.添加用户：adduser命令 通过adduser命令。可以添加普通用户，系统用户以及用户组    
-​        adduser [option] user    
+​        adduser \[option] user    
 ​      7.修改用户：usermod命令    
-​        usermod [options] login (login参数为要修改的用户的登录名)    
+​        usermod \[options] login (login参数为要修改的用户的登录名)    
 ​      8.删除用户：userdel命令    
-​        userdel [options] login (login为要删除的用户的登录名)    
+​        userdel \[options] login (login为要删除的用户的登录名)    
 ​      9.修改用户密码：passwd命令    
-​        passwd [options] login    
+​        passwd \[options] login    
 ​      10.显示用户信息：id命令    
-​        id [options] [user]   
+​        id \[options] \[user]   
 ​      11.用户间切换：su命令    
-​        su [options] login    
+​        su \[options] login    
 ​      12.受限的特权：sudo命令    
-​        sudo [options] command   
+​        sudo \[options] command   
 
 ##### 25.用户组管理
 
 ​      1.添加用户组：groupadd命令  
-​         groupadd [options] group  
+​         groupadd \[options] group  
 ​      2.添加用户组：addgroup命令   
-​         addgroup [组名]  
+​         addgroup \[组名]  
 ​      3.修改用户组：groupmod命令  
 ​         sudo groupmod -n managers manager  
 ​         sudo groupmod -g 1008 managers   
@@ -278,17 +278,17 @@ tail -n  指定用户要输出的行数
 ​         sudo groupdel managers   
 ​      5.Linux权限可以分为权限组、基本权限类型、特殊权限以及访问控制列表。   
 ​      6.改变所有文件所有者：chown 命令    
-​         chown [options]... [owner][:[group]] file...    
+​         chown \[options]... \[owner]\[:\[group]] file...    
 ​      7.改变文件所属组：chgrp命令   
 ​         例子：sudo chgrp joe doc    
 ​      8.设置权限掩码：umask命令   
 ​         umask 参数    
 ​      9.修改文件访问权限：chmod命令   
-​         chmod [option]... mode[,mode]... file   
+​         chmod \[option]... mode\[,mode]... file   
 ​         chmod u=rwx,g=rw,o=r hello.sh   
 ​         chmod u+x,g+w hello.sh    
 ​      10.修改文件ACL：setfacl 命令   
-​         setfacl [option] file...   
+​         setfacl \[option] file...   
 ​      11.查询文件ACL：getfacl 命令    
 
 [内容持续更新中，敬请期待...](https://github.com/zixi5534/LinuxAndJavaNote/blob/master/LinuxNote.md)
