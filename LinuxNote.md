@@ -240,7 +240,7 @@ tail -n  指定用户要输出的行数
 ​        用户组是一组权限和功能相类似的用户的集合。用户组的信息保存在  cat /etc/group文件中    
 ​      2./etc/passwd文件   该文件存储了当前系统的用户账户信息。    
 ​        此文件中每一行都由7个字段构成，字段之间用冒号隔开。  
-         "www-data:\x:33:33:www-data:/var/www:/usr/sbin/nologin" 
+         "www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin" 
 ​        以上七个字段的名称分别如下：   
 ​        登录名：口令：用户标识号：组标识号：注释：用户主目录：Shell程序   
 ​      3./etc/shadow文件    
