@@ -1,5 +1,5 @@
    ![图片添加方式](https://github.com/zixi5534/LinuxAndJavaNote/blob/master/images/logo1.png)   
-    文 | 花翎幺  图 | 网络
+    文 | 林幺  图 | 网络
    # 告知读者
      本仓库是关于SSM框架中的重要组成SpringMVC和MyBatis的笔记，将基于本人网站做全面总结。
    ## 进阶热身
